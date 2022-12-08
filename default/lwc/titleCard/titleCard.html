@@ -1,0 +1,15 @@
+<template>
+    <div onclick={selectTitle}>
+        <lightning-card title={title.Name}>
+        
+            <div class="slds-p-left_medium">
+                <img class="thumbnail" src={title.Thumbnail__c}>
+                <div> {title.Genre__c} </div>
+            </div>
+
+            <div slot="footer">
+                Available {title.Available_Stock__c} / {title.Total_Stock__c}
+            </div>
+        </lightning-card>
+    </div>
+</template>

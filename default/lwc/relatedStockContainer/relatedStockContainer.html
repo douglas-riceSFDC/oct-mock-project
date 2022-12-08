@@ -1,0 +1,11 @@
+<template>
+    <c-stock-table stock={stock}
+                    onstockclicked={handleStockClicked}>
+    </c-stock-table>
+
+    <lightning-record-view-form object-api-name="Stock__c"
+                                record-id={selectedStockId}>
+        <lightning-output-field field-name="Name"></lightning-output-field>
+        <lightning-output-field field-name="Status__c"></lightning-output-field>
+    </lightning-record-view-form>
+</template>

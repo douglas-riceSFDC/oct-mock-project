@@ -1,0 +1,18 @@
+<template>
+    <table class="slds-table slds-table_bordered slds-table_striped">
+        <thead>
+            <tr>
+                <th>Number</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <template for:each={stock} for:item="stockItem">
+                <tr key={stockItem.Id}>
+                    <td><a onclick={selectStock}>{stockItem.Name}</a></td>
+                    <td>{stockItem.Status__c}</td>
+                </tr>
+            </template>
+        </tbody>
+    </table>
+</template>
