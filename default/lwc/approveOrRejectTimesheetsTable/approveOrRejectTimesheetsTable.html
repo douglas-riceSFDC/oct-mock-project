@@ -1,0 +1,36 @@
+<template>
+    <lightning-button label="Approve or Reject Timesheets" 
+                      variant={buttonVariant}
+                      onclick={toggleModal}></lightning-button>
+
+    <c-modal title="Approve or Reject Timesheets">
+        <lightning-datatable columns={columns}
+                                data={timesheets}
+                                key-field="Id"
+                                onrowselection={getSelectedRows}
+        ></lightning-datatable>
+
+        <template for:each={timesheets} for:item="timesheet">
+            <div key={timesheet.Id}
+                data-id={timesheet.Id}
+                data-name={timesheet.Name}
+                onclick={someFunction}
+            ></div>
+        </template>
+
+        <div slot="footer">
+            <span class="slds-p-right_x-small">
+                <lightning-button disabled={buttonsDisabled} 
+                                    label="Reject" 
+                                    variant="destructive" 
+                                    data-operation="Rejected"
+                                    onclick={approveOrReject}></lightning-button>
+            </span>
+            <lightning-button disabled={buttonsDisabled} 
+                                label="Approve" 
+                                variant="success" 
+                                data-operation="Approved"
+                                onclick={approveOrReject}></lightning-button>
+        </div>
+    </c-modal>
+</template>
